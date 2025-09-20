@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redirecting — Ipil Community Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/Ipil Website/Rotunda_white_tsp.png">
+</head>
+<body>
+  <main class="container center">
+    <h1>Redirecting…</h1>
+    <p id="message">Please wait while we redirect you.</p>
+    <p><a id="fallback" href="/">If you are not redirected, click here.</a></p>
+  </main>
+
+  <script>
+    // Map logical targets to either internal pages or external URLs
+    const routes = {
+      tourism: { type: 'internal', url: 'explore-tourism.html' },
+      services: { type: 'internal', url: 'explore-services.html' },
+      events: { type: 'internal', url: 'explore-events.html' },
+      jobs: { type: 'internal', url: 'explore-jobs.html' }
+      // you can change these to external urls when needed
+      // e.g. tourism: { type: 'external', url: 'https://maps.google.com/...' }
+    };
+
+    function param(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    const target = param('target') || param('item') || 'services';
+    const route = routes[target];
+
+    const messageEl = document.getElementById('message');
+    const fallback = document.getElementById('fallback');
+
+    if (route) {
+      if (route.type === 'internal') {
+        // navigate after brief delay (can be immediate)
+        messageEl.textContent = 'Opening page on this site...';
+        fallback.href = route.url;
+        window.location.replace(route.url);
+      } else {
+        messageEl.textContent = 'Opening external resource...';
+        fallback.href = route.url;
+        window.location.replace(route.url);
+      }
+    } else {
+      messageEl.textContent = 'Unknown resource. Showing Explore page instead.';
+      fallback.href = 'explore.html';
+      setTimeout(() => window.location.replace('explore.html'), 1200);
+    }
+  </script>
+</body>
+</html>
