@@ -1,6 +1,18 @@
 function toggleMenu() {
-  document.getElementById("navMenu").classList.toggle("open");
+  const nav = document.getElementById("navMenu");
+  nav.classList.toggle("open");
 }
+
+// Close menu when a link is clicked (mobile)
+const navLinks = document.querySelectorAll("#navMenu a");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.getElementById("navMenu");
+    if (window.innerWidth <= 768) {
+      nav.classList.remove("open");
+    }
+  });
+});
 
 // Change header background on scroll
 window.addEventListener("scroll", () => {
