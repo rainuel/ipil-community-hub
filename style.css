@@ -103,6 +103,7 @@ a:hover {
   padding: 0.6rem 1.2rem;
   border-radius: var(--radius);
   transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 .main-nav a.cta:hover {
   background: var(--accent-dark);
