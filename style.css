@@ -453,5 +453,64 @@ main > p {
 .download-page p{
   color:#ffffff;
 }
+/* ===== Mobile Menu ===== */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* hidden by default */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-gradient);
+    position: absolute;
+    top: 70px; /* below header */
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
 
+  .main-nav.open {
+    display: flex;
+    max-height: 500px; /* enough to show all links */
+    opacity: 1;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+/* ===== Smooth Slide Transition for Mobile Menu ===== */
+.main-nav a {
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+/* Ensure buttons and cards adapt */
+.download-page .download-card {
+  flex-direction: column;
+}
+
+.download-page .btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Adjust hero for smaller screens */
+@media (max-width: 1024px) {
+  .hero-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-img {
+    margin-top: 2rem;
+  }
+}
 
