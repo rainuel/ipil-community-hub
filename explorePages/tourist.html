@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tourist Spots — Ipil Community Hub</title>
+  <link rel="stylesheet" href="/ipil-community-hub/style.css" />
+  <link rel="icon" type="image/png" href="/ipil-community-hub/Rotunda_white_tsp.png">
+
+</head>
+<body class="explore-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/ipil-community-hub/index.html">
+      <img src="/ipil-community-hub/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
+      Ipil Community Hub
+    </a>
+    <nav class="main-nav" id="navMenu">
+        <a href="/ipil-community-hub/index.html">Home</a>
+        <a href="/ipil-community-hub/about.html">About</a>
+        <a href="/ipil-community-hub/explore.html">Explore</a>
+        <a href="/ipil-community-hub/news.html">Updates</a>
+        <a href="/ipil-community-hub/contact.html" class="cta">Contact Us</a>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Tourist Spots</h1>
+  <p>Discover iconic landmarks and attractions in Ipil.</p>
+
+  <section class="cards">
+    <a href="exploreRotunda.html" class="card">
+      <h3>Rotunda</h3>
+      <p>One of Ipil’s most iconic landmarks, known for its cultural events and scenic surroundings.</p>
+    </a>
+    <a href="#" class="card">
+      <h3>Ipil Park</h3>
+      <p>A peaceful park perfect for family outings and relaxation.</p>
+    </a>
+    <a href="#" class="card">
+      <h3>Local Market</h3>
+      <p>Experience the vibrant market life with local products and delicacies.</p>
+    </a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Ipil Community Hub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
