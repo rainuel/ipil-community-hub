@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotunda - Explore Ipil</title>
+  <link rel="stylesheet" href="/ipil-community-hub/style.css">
+  <link rel="icon" type="image/png" href="/ipil-community-hub/Rotunda_white_tsp.png">
+  <style>
+    /* Minimal extra CSS for carousel */
+    .rotunda-carousel {
+      overflow: hidden;
+      max-width: 700px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-track img {
+      flex-shrink: 0;
+      width: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body class="explore-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/ipil-community-hub/index.html" class="brand">
+        <img src="/ipil-community-hub/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav"> 
+        Ipil Community Hub
+      </a>
+      <nav class="main-nav" id="navMenu">
+        <a href="/ipil-community-hub/index.html">Home</a>
+        <a href="/ipil-community-hub/about.html">About</a>
+        <a href="/ipil-community-hub/explore.html">Explore</a>
+        <a href="/ipil-community-hub/news.html">Updates</a>
+        <a href="/ipil-community-hub/contact.html" class="cta">Contact Us</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Zamboanga Sibugay Capitol</h1>
+    <p>Ipil is the provincial capital of Zamboanga Sibugay, located in the island of Mindanao, Philippines. The capitol complex sits on a hill in Ipil Heights and is noted for its colorful, palace-like architecture that blends modern design with local culturally inspired elements. The site offers views over the city and surrounding landscape, and serves as the administrative heart of the province.</p>
+    <!-- Rotunda Carousel -->
+    <div class="rotunda-carousel">
+      <div class="carousel-track">
+        <img src="/ipil-community-hub/Assets/capitol1.jpg" alt="Rotunda Image 1">
+        <img src="/ipil-community-hub/Assets/capitol2.jpg" alt="Rotunda Image 2">
+        <img src="/ipil-community-hub/Assets/capitol3.jpg" alt="Rotunda Image 3">
+      </div>
+    </div>
+
+    <section class="cards">
+      <a href="#" class="card">
+        <h3>History</h3>
+        <p>Ipil’s provincial capitol has roots in the province’s post-2000 formation, rising on a hillside in Ipil Heights as the administrative center after Zamboanga Sibugay became a separate province in 2001. The building and surrounding complex symbolize the unity and identity of Sibugaynon communities, with its colorful, palace-like design reflecting local Subanen and Muslim aesthetic influences and its hilltop location offering expansive views over Ipil and the broader province. </p>
+      </a>
+      <a href="#" class="card">
+        <h3>Events</h3>
+        <p>The events held at the Zamboanga Sibugay Provincial Capitol include cultural festivals like the Sibug-Sibug Festival, which celebrates the province's heritage every February, featuring traditional dances, street performances, and local food, as well as government-related activities such as regional meetings, civic gatherings, and commemorations that mark significant local and national milestones.</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Nearby Attractions</h3>
+        <p>Ipil and the Zamboanga Sibugay capitol area offer several nearby attractions within a short drive that showcase natural beauty and local culture. The most notable spots include hilltop views from the capitol complex, the Rotunda Obelisk landmark, nearby beaches and islands, mangrove parks, waterfalls, and cultural sites in the surrounding towns.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 Ipil Community Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Infinite carousel script
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    let index = 0;
+
+    function nextSlide() {
+      index++;
+      if (index >= slides.length) index = 0; // loop infinitely
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    setInterval(nextSlide, 3000); // scroll every 3 seconds
+  </script>
+</body>
+</html>

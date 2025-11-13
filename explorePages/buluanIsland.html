@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotunda - Explore Ipil</title>
+  <link rel="stylesheet" href="/ipil-community-hub/style.css">
+  <link rel="icon" type="image/png" href="/ipil-community-hub/Rotunda_white_tsp.png">
+  <style>
+    /* Minimal extra CSS for carousel */
+    .rotunda-carousel {
+      overflow: hidden;
+      max-width: 700px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-track img {
+      flex-shrink: 0;
+      width: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body class="explore-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/ipil-community-hub/index.html" class="brand">
+        <img src="/ipil-community-hub/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav"> 
+        Ipil Community Hub
+      </a>
+      <nav class="main-nav" id="navMenu">
+        <a href="/ipil-community-hub/index.html">Home</a>
+        <a href="/ipil-community-hub/about.html">About</a>
+        <a href="/ipil-community-hub/explore.html">Explore</a>
+        <a href="/ipil-community-hub/news.html">Updates</a>
+        <a href="/ipil-community-hub/contact.html" class="cta">Contact Us</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Buluan Island</h1>
+    <p>Buluan Island is a small, tranquil island off Ipil in Zamboanga Sibugay, known for its white-sand beaches, clear turquoise waters, and relatively undeveloped, secluded shorelines. </p>
+    <!-- Rotunda Carousel -->
+    <div class="rotunda-carousel">
+      <div class="carousel-track">
+        <img src="/ipil-community-hub/Assets/buluan1.jpg" alt="Rotunda Image 1">
+        <img src="/ipil-community-hub/Assets/buluan2.jpg" alt="Rotunda Image 2">
+        <img src="/ipil-community-hub/Assets/buluan3.jpg" alt="Rotunda Image 3">
+      </div>
+    </div>
+
+    <section class="cards">
+      <a href="#" class="card">
+        <h3>History</h3>
+        <p>Buluan Island’s brief history: it emerged as a developing coastal destination after Zamboanga Sibugay’s formation in 2001, built up as a protected, low-traffic beach site known for its white sands and tranquil shores.</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Events</h3>
+        <p>Buluan Island's short event history: it was designated as a protected marine sanctuary in 2014, with ongoing efforts for conservation and eco-tourism development.</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Nearby Attractions</h3>
+        <p>Nearby attractions around Buluan Island include other Zamboanga Sibugay beach spots and neighboring nature sights such as Sta. Cruz Island in nearby Zamboanga City for day-trips, mangrove areas, and falls like Tagbilat/Malagandis Falls, all popular for snorkeling, boat trips, and coastal views.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 Ipil Community Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Infinite carousel script
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    let index = 0;
+
+    function nextSlide() {
+      index++;
+      if (index >= slides.length) index = 0; // loop infinitely
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    setInterval(nextSlide, 3000); // scroll every 3 seconds
+  </script>
+</body>
+</html>
