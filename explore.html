@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore — Ipil Community Hub</title>
+  <meta name="description" content="Discover local services, tourist spots, events, jobs, and opportunities in Ipil." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="Rotunda_white_tsp.png">
+</head>
+<body class="explore-page">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
+      Ipil Community Hub
+    </a>
+    <nav class="main-nav" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="explore.html">Explore</a>
+        <a href="news.html">Updates</a>
+        <a href="contact.html" class="cta">Contact Us</a>
+    </nav>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Explore</h1>
+  <p>Discover what Ipil has to offer — from tourist attractions to essential local services, jobs, and upcoming events.</p>
+
+  <section class="cards">
+    <a class="card" href="/ipil-community-hub/explorePages/tourist.html" data-target="tourism">
+      <h3>Tourist Spots</h3>
+      <p>Explore maps, photos, and quick guides to local attractions.</p>
+    </a>
+
+    <a class="card" href="redirect.html?target=tourism" data-target="services">
+      <h3>Local Services</h3>
+      <p>Find markets, health centers, transport hubs, and tricycle routes.</p>
+    </a>
+
+    <a class="card" href="redirect.html?target=events" data-target="events">
+      <h3>Events</h3>
+      <p>Stay updated on barangay and community activities.</p>
+    </a>
+
+    <a class="card" href="redirect.html?target=jobs" data-target="jobs">
+      <h3>Jobs & Opportunities</h3>
+      <p>Browse job openings and volunteer opportunities nearby.</p>
+    </a>
+  </section>
+  <hr />
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="year"></span> Ipil Today — Built for the community.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
