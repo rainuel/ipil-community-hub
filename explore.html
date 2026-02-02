@@ -1,65 +1,307 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Explore — Ipil Community Hub</title>
-  <meta name="description" content="Discover local services, tourist spots, events, jobs, and opportunities in Ipil." />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Ipil — Discover Zamboanga Sibugay</title>
+  <meta name="description" content="Discover the beauty, culture, and opportunities of Ipil through images, stories, and experiences." />
   <link rel="icon" type="image/png" href="Rotunda_white_tsp.png">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ================================
+       HIGH-IMPACT EXPLORE LANDING PAGE
+       ================================ */
+
+    body.explore-page {
+      background: #0b1c22;
+      color: #fff;
+    }
+
+    /* ===== Hero Slider ===== */
+    .explore-hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.75)
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      max-width: 900px;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      color: #e5e7eb;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btn {
+      background: #22c55e;
+      color: #022c22;
+      padding: 1rem 2.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(34,197,94,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(34,197,94,0.6);
+    }
+
+    /* ===== Section Wrapper ===== */
+    .explore-section {
+      padding: 5rem 1.2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-header p {
+      color: #cbd5f5;
+      font-size: 1.05rem;
+    }
+
+    /* ===== Visual Category Grid ===== */
+    .visual-grid {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 260px;
+      gap: 1.5rem;
+    }
+
+    .visual-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .visual-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.15)
+      );
+    }
+
+    .visual-card-content {
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      padding: 1.8rem;
+    }
+
+    .visual-card h3 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .visual-card span {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .visual-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.6);
+    }
+
+    .visual-card:hover img {
+      transform: scale(1.12);
+    }
+
+    /* Grid sizes */
+    .tourism { grid-column: span 7; }
+    .services { grid-column: span 5; }
+    .events { grid-column: span 5; }
+    .jobs { grid-column: span 7; }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 900px) {
+      .hero-content h1 { font-size: 2.6rem; }
+      .visual-grid { grid-template-columns: 1fr; grid-auto-rows: 320px; }
+      .tourism, .services, .events, .jobs { grid-column: span 1; }
+    }
+  </style>
+
 </head>
 <body class="explore-page">
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html">
-      <img src="Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
+      <img src="Rotunda_white_tsp.png" class="logo-nav" alt="Ipil Logo">
       Ipil Community Hub
     </a>
     <nav class="main-nav" id="navMenu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="explore.html">Explore</a>
-        <a href="news.html">Updates</a>
-        <a href="contact.html" class="cta">Contact Us</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="explore.html">Explore</a>
+      <a href="news.html">Updates</a>
+      <a href="contact.html" class="cta">Contact Us</a>
     </nav>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </header>
 
-<main class="container">
-  <h1>Explore</h1>
-  <p>Discover what Ipil has to offer — from tourist attractions to essential local services, jobs, and upcoming events.</p>
+<!-- HERO SLIDER -->
 
-  <section class="cards">
-    <a class="card" href="/ipil-community-hub/explorePages/tourist.html" data-target="tourism">
-      <h3>Tourist Spots</h3>
-      <p>Explore maps, photos, and quick guides to local attractions.</p>
+<section class="explore-hero">
+  <div class="hero-slide active" style="background-image:url('/Assets/buluan2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('/Assets/capitol1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('/Assets/rotunda2.jpg')"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Discover the Heart of Ipil</h1>
+    <p>
+      Explore breathtaking islands, vibrant communities, essential services,
+      and local opportunities — all in one place.
+    </p>
+    <a href="#categories" class="hero-btn">Start Exploring</a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section id="categories" class="explore-section">
+  <div class="section-header">
+    <h2>Explore by Category</h2>
+    <p>Visual guides to everything Ipil has to offer</p>
+  </div>
+
+  <div class="visual-grid">
+    <a href="/explorePages/tourist.html" class="visual-card tourism">
+      <img src="/Assets/buluan2.jpg" alt="Tourist Spots">
+      <div class="visual-card-content">
+        <h3>Tourist Spots</h3>
+        <span>Islands • Beaches • Nature</span>
+      </div>
     </a>
 
-    <a class="card" href="redirect.html?target=tourism" data-target="services">
-      <h3>Local Services</h3>
-      <p>Find markets, health centers, transport hubs, and tricycle routes.</p>
-    </a>
 
-    <a class="card" href="redirect.html?target=events" data-target="events">
-      <h3>Events</h3>
-      <p>Stay updated on barangay and community activities.</p>
-    </a>
+<a href="under-construction.html" class="visual-card services">
+  <img src="/Assets/underDevelopment.png" alt="Local Services">
+  <div class="visual-card-content">
+    <h3>Local Services</h3>
+    <span>Markets • Transport • Health</span>
+  </div>
+</a>
 
-    <a class="card" href="redirect.html?target=jobs" data-target="jobs">
-      <h3>Jobs & Opportunities</h3>
-      <p>Browse job openings and volunteer opportunities nearby.</p>
-    </a>
-  </section>
-  <hr />
-</main>
+<a href="under-construction.html" class="visual-card events">
+  <img src="/Assets/underDevelopment.png" alt="Events">
+  <div class="visual-card-content">
+    <h3>Events</h3>
+    <span>Festivals • Barangay Activities</span>
+  </div>
+</a>
+
+<a href="under-construction.html" class="visual-card jobs">
+  <img src="/Assets/underDevelopment.png" alt="Jobs & Opportunities">
+  <div class="visual-card-content">
+    <h3>Jobs & Opportunities</h3>
+    <span>Work • Volunteer • Growth</span>
+  </div>
+</a>
+
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> 2025 Ipil Community Hub. All rights reserved.</p>
+    <p>© 2025 Ipil Community Hub. All rights reserved.</p>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('open');
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero slider
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+</script>
+
 </body>
 </html>

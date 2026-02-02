@@ -1,50 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Tourist Spots — Ipil Community Hub</title>
-  <link rel="stylesheet" href="/ipil-community-hub/style.css" />
-  <link rel="icon" type="image/png" href="/ipil-community-hub/Rotunda_white_tsp.png">
-
+  <link rel="stylesheet" href="/css/tourist.css"/>
+  <link rel="icon" type="image/png" href="/Rotunda_white_tsp.png">
 </head>
-<body class="explore-page">
+
+<body class="tourist-page">
+
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/ipil-community-hub/index.html">
-      <img src="/ipil-community-hub/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
+    <a class="brand" href="/index.html">
+      <img src="/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
       Ipil Community Hub
     </a>
     <nav class="main-nav" id="navMenu">
-        <a href="/ipil-community-hub/index.html">Home</a>
-        <a href="/ipil-community-hub/about.html">About</a>
-        <a href="/ipil-community-hub/explore.html">Explore</a>
-        <a href="/ipil-community-hub/news.html">Updates</a>
-        <a href="/ipil-community-hub/contact.html" class="cta">Contact Us</a>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/news.html">Updates</a>
+      <a href="/contact.html" class="cta">Contact Us</a>
     </nav>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
   </div>
 </header>
 
-<main class="container">
-  <h1>Tourist Spots</h1>
-  <p>Discover iconic landmarks and attractions in Ipil.</p>
+<!-- HERO SLIDER -->
+<section class="explore-hero">
+  <div class="hero-slide active" style="background-image: url('/Assets/buluan1.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('/Assets/capitol3.jpg');"></div>
+  <div class="hero-slide" style="background-image: url('/Assets/rotunda.jpg');"></div>
 
-  <section class="cards">
-    <a href="exploreRotunda.html" class="card">
-      <h3>Rotunda</h3>
-      <p>Ipil’s Rotunda Obelisk is a central, tall landmark at the town center of Ipil, Zamboanga Sibugay, serving as a memorial and symbol of regional identity with a fountain and surrounding greenery. </p>
-    </a>
-    <a href="capitolIpil.html" class="card">
-      <h3>Zamboanga Sibugay Capitol</h3>
-      <p>The capitol area sits on a hill in Ipil, offering prominent views and serving as the province’s administrative hub.</p>
-    </a>
-    <a href="buluanIsland.html" class="card">
-      <h3>Buluan Island</h3>
-      <p>Buluan Island is a small, tranquil island off Ipil in Zamboanga Sibugay, known for its white-sand beaches, clear turquoise waters, and relatively undeveloped, secluded shorelines.</p>
-    </a>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Tourist Spots in Ipil</h1>
+    <p>Discover the landmarks, islands, and natural attractions that define our community.</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <!-- DESTINATIONS HORIZONTAL SCROLL -->
+  <section class="destinations-row">
+    <div class="destination-tile">
+      <a href="exploreRotunda.html">
+        <img src="/Assets/rotunda.jpg" alt="Ipil Rotunda">
+        <div class="tile-overlay">
+          <h3>Ipil Rotunda</h3>
+          <p>The symbolic heart of Ipil, featuring the iconic obelisk, fountain, and landscaped surroundings.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="destination-tile">
+      <a href="capitolIpil.html">
+        <img src="/Assets/capitol3.jpg" alt="Zamboanga Sibugay Capitol">
+        <div class="tile-overlay">
+          <h3>Zamboanga Sibugay Capitol</h3>
+          <p>A prominent hilltop complex serving as the administrative center of the province.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="destination-tile">
+      <a href="buluanIsland.html">
+        <img src="/Assets/buluan2.jpg" alt="Buluan Island">
+        <div class="tile-overlay">
+          <h3>Buluan Island</h3>
+          <p>White sands, clear waters, and a peaceful island escape just off the coast of Ipil.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Add more tiles horizontally -->
   </section>
+
 </main>
+
 
 <footer class="site-footer">
   <div class="container">
@@ -54,9 +89,21 @@
 
 <script>
   function toggleMenu() {
-    const menu = document.getElementById('navMenu');
-    menu.classList.toggle('open');
+    document.getElementById("navMenu").classList.toggle("open");
   }
+
+  // Hero slider
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+
+  // Update footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
