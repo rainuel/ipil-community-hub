@@ -1,12 +1,15 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Explore Ipil — Discover Zamboanga Sibugay</title>
   <meta name="description" content="Discover the beauty, culture, and opportunities of Ipil through images, stories, and experiences." />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="Rotunda_white_tsp.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -216,11 +219,10 @@
 </header>
 
 <!-- HERO SLIDER -->
-
 <section class="explore-hero">
-  <div class="hero-slide active" style="background-image:url('/Assets/buluan2.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('/Assets/capitol1.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('/Assets/rotunda2.jpg')"></div>
+  <div class="hero-slide active" style="background-image:url('Assets/buluan2.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('Assets/capitol1.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('Assets/rotunda2.jpg')"></div>
 
   <div class="hero-overlay"></div>
 
@@ -235,7 +237,6 @@
 </section>
 
 <!-- CATEGORIES -->
-
 <section id="categories" class="explore-section">
   <div class="section-header">
     <h2>Explore by Category</h2>
@@ -243,39 +244,37 @@
   </div>
 
   <div class="visual-grid">
-    <a href="/explorePages/tourist.html" class="visual-card tourism">
-      <img src="/Assets/buluan2.jpg" alt="Tourist Spots">
+    <a href="explorePages/tourist.html" class="visual-card tourism">
+      <img src="Assets/buluan2.jpg" alt="Tourist Spots">
       <div class="visual-card-content">
         <h3>Tourist Spots</h3>
         <span>Islands • Beaches • Nature</span>
       </div>
     </a>
 
+    <a href="under-construction.html" class="visual-card services">
+      <img src="Assets/underDevelopment.png" alt="Local Services">
+      <div class="visual-card-content">
+        <h3>Local Services</h3>
+        <span>Markets • Transport • Health</span>
+      </div>
+    </a>
 
-<a href="under-construction.html" class="visual-card services">
-  <img src="/Assets/underDevelopment.png" alt="Local Services">
-  <div class="visual-card-content">
-    <h3>Local Services</h3>
-    <span>Markets • Transport • Health</span>
-  </div>
-</a>
+    <a href="under-construction.html" class="visual-card events">
+      <img src="Assets/underDevelopment.png" alt="Events">
+      <div class="visual-card-content">
+        <h3>Events</h3>
+        <span>Festivals • Barangay Activities</span>
+      </div>
+    </a>
 
-<a href="under-construction.html" class="visual-card events">
-  <img src="/Assets/underDevelopment.png" alt="Events">
-  <div class="visual-card-content">
-    <h3>Events</h3>
-    <span>Festivals • Barangay Activities</span>
-  </div>
-</a>
-
-<a href="under-construction.html" class="visual-card jobs">
-  <img src="/Assets/underDevelopment.png" alt="Jobs & Opportunities">
-  <div class="visual-card-content">
-    <h3>Jobs & Opportunities</h3>
-    <span>Work • Volunteer • Growth</span>
-  </div>
-</a>
-
+    <a href="under-construction.html" class="visual-card jobs">
+      <img src="Assets/underDevelopment.png" alt="Jobs & Opportunities">
+      <div class="visual-card-content">
+        <h3>Jobs & Opportunities</h3>
+        <span>Work • Volunteer • Growth</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -290,12 +289,9 @@
     document.getElementById('navMenu').classList.toggle('open');
   }
 
-  document.getElementById('year').textContent = new Date().getFullYear();
-
   // Hero slider
   const slides = document.querySelectorAll('.hero-slide');
   let current = 0;
-
   setInterval(() => {
     slides[current].classList.remove('active');
     current = (current + 1) % slides.length;

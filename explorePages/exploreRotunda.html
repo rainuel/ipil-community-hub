@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rotunda - Explore Ipil</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" type="image/png" href="/Rotunda_white_tsp.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Rotunda_white_tsp.png">
+
   <style>
     /* Minimal extra CSS for carousel */
     .rotunda-carousel {
@@ -26,49 +31,67 @@
     }
   </style>
 </head>
+
 <body class="explore-page">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/index.html" class="brand">
-        <img src="/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav"> 
+      <a href="../index.html" class="brand">
+        <img src="../Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
         Ipil Community Hub
       </a>
+
       <nav class="main-nav" id="navMenu">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/news.html">Updates</a>
-        <a href="/contact.html" class="cta">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../explore.html">Explore</a>
+        <a href="../news.html">Updates</a>
+        <a href="../contact.html" class="cta">Contact Us</a>
       </nav>
+
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
   <main class="container">
     <h1>Rotunda</h1>
-    <p>The Rotunda is one of Ipil’s most iconic landmarks. Serving as a central gathering space, it is known for its cultural events, community programs, and scenic surroundings. Visitors often come here to relax, meet with friends, or enjoy local festivities.</p>
+    <p>
+      The Rotunda is one of Ipil’s most iconic landmarks. Serving as a central
+      gathering space, it is known for its cultural events, community programs,
+      and scenic surroundings.
+    </p>
 
-    <!-- Rotunda Carousel -->
+    <!-- Carousel -->
     <div class="rotunda-carousel">
       <div class="carousel-track">
-        <img src="/Assets/Rotunda.jpg" alt="Rotunda Image 1">
-        <img src="/Assets/Rotunda2.jpg" alt="Rotunda Image 2">
-        <img src="/Assets/rotunda3.jpg" alt="Rotunda Image 3">
+        <img src="../Assets/Rotunda.jpg" alt="Rotunda Image 1">
+        <img src="../Assets/Rotunda2.jpg" alt="Rotunda Image 2">
+        <img src="../Assets/rotunda3.jpg" alt="Rotunda Image 3">
       </div>
     </div>
 
     <section class="cards">
       <a href="#" class="card">
         <h3>History</h3>
-        <p>The Rotunda was built to commemorate the town’s founding and has been a central spot for gatherings and celebrations throughout the years.</p>
+        <p>
+          The Rotunda was built to commemorate the town’s founding and has long
+          been a central spot for gatherings and celebrations.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Events</h3>
-        <p>From cultural shows to town meetings, the Rotunda hosts a wide variety of events that bring the community together.</p>
+        <p>
+          From cultural shows to town meetings, the Rotunda hosts a wide variety
+          of events that bring the community together.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Nearby Attractions</h3>
-        <p>Visitors can explore local parks, cafes, and markets within walking distance of the Rotunda.</p>
+        <p>
+          Visitors can explore local parks, cafés, and markets within walking
+          distance of the Rotunda.
+        </p>
       </a>
     </section>
   </main>
@@ -81,23 +104,21 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      menu.classList.toggle('open');
+      document.getElementById("navMenu").classList.toggle("open");
     }
 
-    // Infinite carousel script
-    const track = document.querySelector('.carousel-track');
+    // Infinite carousel
+    const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
     let index = 0;
 
     function nextSlide() {
-      index++;
-      if (index >= slides.length) index = 0; // loop infinitely
+      index = (index + 1) % slides.length;
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
-    setInterval(nextSlide, 3000); // scroll every 3 seconds
+    setInterval(nextSlide, 3000);
   </script>
 </body>
 </html>

@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Provincial Capitol - Explore Ipil</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" type="image/png" href="/Rotunda_white_tsp.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Rotunda_white_tsp.png">
+
   <style>
     /* Minimal extra CSS for carousel */
     .rotunda-carousel {
@@ -26,48 +31,69 @@
     }
   </style>
 </head>
+
 <body class="explore-page">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/index.html" class="brand">
-        <img src="/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav"> 
+      <a href="../index.html" class="brand">
+        <img src="../Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
         Ipil Community Hub
       </a>
+
       <nav class="main-nav" id="navMenu">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/news.html">Updates</a>
-        <a href="/contact.html" class="cta">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../explore.html">Explore</a>
+        <a href="../news.html">Updates</a>
+        <a href="../contact.html" class="cta">Contact Us</a>
       </nav>
+
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
   <main class="container">
     <h1>Zamboanga Sibugay Capitol</h1>
-    <p>Ipil is the provincial capital of Zamboanga Sibugay, located in the island of Mindanao, Philippines. The capitol complex sits on a hill in Ipil Heights and is noted for its colorful, palace-like architecture that blends modern design with local culturally inspired elements. The site offers views over the city and surrounding landscape, and serves as the administrative heart of the province.</p>
-    <!-- Rotunda Carousel -->
+    <p>
+      Ipil is the provincial capital of Zamboanga Sibugay, located in the island
+      of Mindanao, Philippines. The capitol complex sits on a hill in Ipil Heights
+      and is noted for its colorful, palace-like architecture that blends modern
+      design with local culturally inspired elements.
+    </p>
+
+    <!-- Carousel -->
     <div class="rotunda-carousel">
       <div class="carousel-track">
-        <img src="/Assets/capitol1.jpg" alt="Rotunda Image 1">
-        <img src="/Assets/capitol2.jpg" alt="Rotunda Image 2">
-        <img src="/Assets/capitol3.jpg" alt="Rotunda Image 3">
+        <img src="../Assets/capitol1.jpg" alt="Zamboanga Sibugay Capitol 1">
+        <img src="../Assets/capitol2.jpg" alt="Zamboanga Sibugay Capitol 2">
+        <img src="../Assets/capitol3.jpg" alt="Zamboanga Sibugay Capitol 3">
       </div>
     </div>
 
     <section class="cards">
       <a href="#" class="card">
         <h3>History</h3>
-        <p>Ipil’s provincial capitol has roots in the province’s post-2000 formation, rising on a hillside in Ipil Heights as the administrative center after Zamboanga Sibugay became a separate province in 2001. The building and surrounding complex symbolize the unity and identity of Sibugaynon communities, with its colorful, palace-like design reflecting local Subanen and Muslim aesthetic influences and its hilltop location offering expansive views over Ipil and the broader province. </p>
+        <p>
+          Ipil’s provincial capitol traces its roots to the province’s formation
+          in 2001, symbolizing unity and identity through its hilltop location
+          and culturally inspired architecture.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Events</h3>
-        <p>The events held at the Zamboanga Sibugay Provincial Capitol include cultural festivals like the Sibug-Sibug Festival, which celebrates the province's heritage every February, featuring traditional dances, street performances, and local food, as well as government-related activities such as regional meetings, civic gatherings, and commemorations that mark significant local and national milestones.</p>
+        <p>
+          The capitol hosts cultural festivals such as the Sibug-Sibug Festival,
+          along with government functions, civic gatherings, and commemorations.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Nearby Attractions</h3>
-        <p>Ipil and the Zamboanga Sibugay capitol area offer several nearby attractions within a short drive that showcase natural beauty and local culture. The most notable spots include hilltop views from the capitol complex, the Rotunda Obelisk landmark, nearby beaches and islands, mangrove parks, waterfalls, and cultural sites in the surrounding towns.</p>
+        <p>
+          Nearby attractions include the Rotunda Obelisk, hilltop viewpoints,
+          beaches, mangrove parks, waterfalls, and cultural sites in nearby towns.
+        </p>
       </a>
     </section>
   </main>
@@ -80,23 +106,21 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      menu.classList.toggle('open');
+      document.getElementById("navMenu").classList.toggle("open");
     }
 
-    // Infinite carousel script
-    const track = document.querySelector('.carousel-track');
+    // Infinite carousel
+    const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
     let index = 0;
 
     function nextSlide() {
-      index++;
-      if (index >= slides.length) index = 0; // loop infinitely
+      index = (index + 1) % slides.length;
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
-    setInterval(nextSlide, 3000); // scroll every 3 seconds
+    setInterval(nextSlide, 3000);
   </script>
 </body>
 </html>

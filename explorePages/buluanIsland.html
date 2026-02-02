@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buluan Island - Explore Ipil</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="icon" type="image/png" href="/Rotunda_white_tsp.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../Rotunda_white_tsp.png">
+
   <style>
     /* Minimal extra CSS for carousel */
     .rotunda-carousel {
@@ -26,48 +31,68 @@
     }
   </style>
 </head>
+
 <body class="explore-page">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/index.html" class="brand">
-        <img src="/Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav"> 
+      <a href="index.html" class="brand">
+        <img src="../Rotunda_white_tsp.png" alt="Ipil Logo" class="logo-nav">
         Ipil Community Hub
       </a>
+
       <nav class="main-nav" id="navMenu">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/news.html">Updates</a>
-        <a href="/contact.html" class="cta">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../explore.html">Explore</a>
+        <a href="../news.html">Updates</a>
+        <a href="../contact.html" class="cta">Contact Us</a>
       </nav>
+
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </div>
   </header>
 
   <main class="container">
     <h1>Buluan Island</h1>
-    <p>Buluan Island is a small, tranquil island off Ipil in Zamboanga Sibugay, known for its white-sand beaches, clear turquoise waters, and relatively undeveloped, secluded shorelines. </p>
-    <!-- Rotunda Carousel -->
+    <p>
+      Buluan Island is a small, tranquil island off Ipil in Zamboanga Sibugay,
+      known for its white-sand beaches, clear turquoise waters, and relatively
+      undeveloped, secluded shorelines.
+    </p>
+
+    <!-- Carousel -->
     <div class="rotunda-carousel">
       <div class="carousel-track">
-        <img src="/Assets/buluan1.jpg" alt="Rotunda Image 1">
-        <img src="/Assets/buluan2.jpg" alt="Rotunda Image 2">
-        <img src="/Assets/buluan3.jpg" alt="Rotunda Image 3">
+        <img src="../Assets/buluan1.jpg" alt="Buluan Island Image 1">
+        <img src="../Assets/buluan2.jpg" alt="Buluan Island Image 2">
+        <img src="../Assets/buluan3.jpg" alt="Buluan Island Image 3">
       </div>
     </div>
 
     <section class="cards">
       <a href="#" class="card">
         <h3>History</h3>
-        <p>Buluan Island’s brief history: it emerged as a developing coastal destination after Zamboanga Sibugay’s formation in 2001, built up as a protected, low-traffic beach site known for its white sands and tranquil shores.</p>
+        <p>
+          Buluan Island emerged as a developing coastal destination after
+          Zamboanga Sibugay’s formation in 2001, known for its protected,
+          low-traffic white-sand beaches.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Events</h3>
-        <p>Buluan Island's short event history: it was designated as a protected marine sanctuary in 2014, with ongoing efforts for conservation and eco-tourism development.</p>
+        <p>
+          Designated as a protected marine sanctuary in 2014, with ongoing
+          conservation and eco-tourism efforts.
+        </p>
       </a>
+
       <a href="#" class="card">
         <h3>Nearby Attractions</h3>
-        <p>Nearby attractions around Buluan Island include other Zamboanga Sibugay beach spots and neighboring nature sights such as Sta. Cruz Island in nearby Zamboanga City for day-trips, mangrove areas, and falls like Tagbilat/Malagandis Falls, all popular for snorkeling, boat trips, and coastal views.</p>
+        <p>
+          Nearby attractions include other Sibugay beaches, mangrove areas,
+          and waterfalls such as Tagbilat and Malagandis Falls.
+        </p>
       </a>
     </section>
   </main>
@@ -80,23 +105,21 @@
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      menu.classList.toggle('open');
+      document.getElementById("navMenu").classList.toggle("open");
     }
 
-    // Infinite carousel script
-    const track = document.querySelector('.carousel-track');
+    // Infinite carousel
+    const track = document.querySelector(".carousel-track");
     const slides = Array.from(track.children);
     let index = 0;
 
     function nextSlide() {
-      index++;
-      if (index >= slides.length) index = 0; // loop infinitely
+      index = (index + 1) % slides.length;
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
-    setInterval(nextSlide, 3000); // scroll every 3 seconds
+    setInterval(nextSlide, 3000);
   </script>
 </body>
 </html>
