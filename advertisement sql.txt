@@ -1,0 +1,13 @@
+advertisement sql
+
+insert into ads (title, image_url, link, active, start_date, end_date, priority)
+values
+(
+  'Growth Minded Marketing',
+  'https://oxwtuudtubwpndvosjsi.supabase.co/storage/v1/object/public/ads-images/ads_example.png',
+  'https://growthmindedmarketing.com/blog/google-ads-bidding-strategies/',
+  true,
+  now(),
+  now() + interval '7 days',
+  1
+);
