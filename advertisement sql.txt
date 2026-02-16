@@ -11,3 +11,23 @@ values
   now() + interval '7 days',
   1
 );
+
+
+INSERT INTO ads (title, image_url, link, active, start_date, end_date, priority)
+VALUES (
+    'Ipil Today Has Launched a Facebook Page!',
+    'https://oxwtuudtubwpndvosjsi.supabase.co/storage/v1/object/public/ads-images/visitFB.png',
+    'https://www.facebook.com/profile.php?id=61587563445254',
+    TRUE,
+    now(),                     
+    now() + INTERVAL '30 days',   
+    1                          
+);
+
+
+
+/// How to count using our database
+
+-- Count all registered devices (users)
+SELECT COUNT(*) AS total_users
+FROM public.app_devices;
